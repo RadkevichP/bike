@@ -1,4 +1,9 @@
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://212.98.165.50:11084/.well-known/openid-configuration/jwks
   jpa:
     database-platform: org.hibernate.dialect.SQLiteDialect
     show-sql: true
@@ -9,22 +14,7 @@ spring:
     username:
     password:
     driver-class-name: org.sqlite.JDBC
-  security:
-    oauth2:
-      client:
-        registration:
-          okta:
-            issuer: https://dev-229121.okta.com/oauth2/default
-            scope: openid
-            client-id: 0oao3ne1d7yZA2agd356
-            client-secret: _GuP_74Zgwx1VP4yEIbYqoZShWHpgIJFv0RV20NG
-  security:
-    okta:
-      oauth2:
-        issuer: https://dev-229121.okta.com/oauth2/default
-          scope: openid
-          client-id: 0oao3ne1d7yZA2agd356
-          client-secret: _GuP_74Zgwx1VP4yEIbYqoZShWHpgIJFv0RV20NG
+
 logging:
   level:
     root: info
