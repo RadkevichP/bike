@@ -9,5 +9,15 @@ spring:
     username:
     password:
     driver-class-name: org.sqlite.JDBC
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://212.98.165.50:11084/.well-known/openid-configuration/jwks
+          issuer-uri: http://212.98.165.50:11084
+logging:
+  level:
+    root: info
+    org.springframework.web: info
 server:
   port: 8097

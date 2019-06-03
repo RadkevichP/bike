@@ -3,7 +3,9 @@ package com.globomatics.bike.controller;
 import com.globomatics.bike.model.Bike;
 import com.globomatics.bike.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,7 +19,8 @@ public class BikeController {
     private BikeRepository bikeRepository;
 
     @GetMapping
-    public List<Bike> list() {
+    public List<Bike> list(RequestEntity requestEntity) {
+        System.out.println(requestEntity);
         return bikeRepository.findAll();
     }
 
