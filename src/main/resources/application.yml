@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://212.98.165.50:11084/.well-known/openid-configuration/jwks
+          jwk-set-uri: https://auth.elinext.com/.well-known/openid-configuration/jwks
   jpa:
     database-platform: org.hibernate.dialect.SQLiteDialect
     show-sql: true

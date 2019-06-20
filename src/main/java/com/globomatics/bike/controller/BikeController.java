@@ -3,11 +3,11 @@ package com.globomatics.bike.controller;
 import com.globomatics.bike.model.Bike;
 import com.globomatics.bike.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +19,19 @@ public class BikeController {
     private BikeRepository bikeRepository;
 
     @GetMapping
-    public List<Bike> list(RequestEntity requestEntity) {
-        System.out.println(requestEntity);
+    public List<Bike> list(HttpServletRequest httpRequest) {
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        System.out.println(httpRequest.toString());
+        System.out.println(httpRequest.getHeader("role"));
         return bikeRepository.findAll();
+       /* if (requestEntity.getHeaders().get("role").equals("admin")) {
+            System.out.println("admin here!");
+            return bikeRepository.findAll();
+        }
+        else {
+            System.out.println("not admin ((((");
+            return bikeRepository.findAll();
+        }*/
     }
 
     @PostMapping
